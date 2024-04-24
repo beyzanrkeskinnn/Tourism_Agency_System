@@ -486,8 +486,9 @@ public class EmployeeView extends Layout {
 
 
     }
+
     private void createUIComponents() throws ParseException {
-        // TODO: place custom component creation code here
+
         this.fld_hotel_strt_date = new JFormattedTextField(new MaskFormatter("##/##/####"));
         this.fld_hotel_strt_date.setText("01/06/2024");
         this.fld_hotel_fnsh_date = new JFormattedTextField(new MaskFormatter("##/##/####"));

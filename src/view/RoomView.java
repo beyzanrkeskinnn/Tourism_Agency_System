@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class RoomView extends Layout{
+public class RoomView extends Layout {
     private JPanel container;
     private JComboBox cmb_room_hotel;
     private JComboBox cmb_room_pension;
@@ -43,7 +43,7 @@ public class RoomView extends Layout{
     private HotelManager hotelManager;
     private RoomManager roomManager;
 
-    public   RoomView( ){
+    public RoomView() {
         this.comboItem = new ComboItem();
         this.hotel = new Hotel();
         this.room = new Room();
@@ -69,7 +69,7 @@ public class RoomView extends Layout{
                 System.out.println("pansiyon: " + pensions);
                 cmb_room_pension.removeAllItems();
 
-                for(Pension pension:pensions){
+                for (Pension pension : pensions) {
                     cmb_room_pension.addItem(pension.getComboItem());
                 }
 
@@ -95,7 +95,7 @@ public class RoomView extends Layout{
                     boolean result = false;
                     ComboItem selectedHotel = (ComboItem) cmb_room_hotel.getSelectedItem();
                     ComboItem selectedPension = (ComboItem) cmb_room_pension.getSelectedItem();
-                    ComboItem selectedSeason=(ComboItem) cmb_room_season.getSelectedItem();;//: TODO hata veriyor
+                    ComboItem selectedSeason = (ComboItem) cmb_room_season.getSelectedItem();
                     room.setSeason_id(selectedSeason.getKey());
                     room.setPension_id(selectedPension.getKey());
                     room.setHotel_id(selectedHotel.getKey());
@@ -111,17 +111,17 @@ public class RoomView extends Layout{
                     room.setCash_box(rbut_cashbox.isSelected());
                     room.setProjection(rbut_projection.isSelected());
 
-                    if(room.getId()!=0){
+                    if (room.getId() != 0) {
                         result = roomManager.update(room);
-                    }else{
-                        result=roomManager.save(room);
+                    } else {
+                        result = roomManager.save(room);
                     }
-                    if(result){
+                    if (result) {
                         Helper.showMsg("done");
 
 
                         dispose();
-                    }else{
+                    } else {
                         Helper.showMsg("error");
                     }
                 }
@@ -131,5 +131,5 @@ public class RoomView extends Layout{
         });
 
     }
-    }
+}
 
